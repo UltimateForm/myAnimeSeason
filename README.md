@@ -1,24 +1,10 @@
-# myanimeseason
+This little website here shows the current animes in season accompanied by cute but vague shiba reactions according to scores
 
-## Project setup
-```
-yarn install
-```
+Provides links to source MAL page and to google search
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+Thank you Wrench for uncoupling the shibas 👁️👄👁️
 
-### Compiles and minifies for production
-```
-yarn build
-```
+(found background shiba img on google, couldnt find author)
 
-### Lints and fixes files
-```
-yarn lint
-```
+Shiba Icons Designed by Freepik
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
