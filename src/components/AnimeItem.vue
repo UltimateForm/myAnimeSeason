@@ -11,7 +11,7 @@
 		</div>
 
 		<img
-			class="edge-icon mal-icon header-icon"
+			class="edge-icon header-icon mal-icon "
 			src="@/assets/malIcon.png"
 			v-bind:alt="this.anime.score"
 			@click="openMALUrl()"
@@ -62,6 +62,7 @@
 		min-width: 220px;
 		display: flex;
 		justify-content: center;
+		position: relative
 	}
 
 	.card:hover {
@@ -102,14 +103,14 @@
 		box-shadow: 0px 8px 8px 0 rgba(0, 0, 0, 0.2);
 	}
 	.mal-icon {
-		margin-left: -70px;
+		left: 10%;
 	}
 	.watch-icon {
-		margin-left: 70px;
 		height: 50px;
 		background-color: #2e51a2;
 		place-content: center;
 		place-items: center;
 		display: flex;
+		right: 10%;
 	}
 </style>
