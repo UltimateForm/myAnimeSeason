@@ -8,32 +8,32 @@ Vue.use(Vuex);
 //Create store
 export default new Vuex.Store({
 	state: {
-		season: []
+		animes: []
 	},
-	getters:{
-		season:(state)=>{
-			return state.season;
+	getters: {
+		animes: (state) => {
+			return state.animes;
 		},
-		animes:(state, getters)=>{
-			return getters.season.anime;
-		},
-		seasonName:(state, getters)=>{
-			return getters.season.season_name;
-		},
-		seasonYear:(state, getters)=>{
-			return getters.season.season_year;
-		}
 	},
 	actions: {
 		async fetchSeason(context) {
-			const response = await axios.get("https://api.jikan.moe/v3/season");
-			console.log("axios fetch season response", response);
-			context.commit("setSeason", response.data);
+			let seasonAnimes = [];
+			let nextPage = 1
+			while (nextPage) {
+				const response = await axios.get(`https://api.jikan.moe/v4/seasons/now?page=${nextPage}`);
+				seasonAnimes.push(...response.data.data);
+				const has_next_page = response.data.pagination.has_next_page;
+				if (has_next_page) {
+					nextPage += 1;
+				}
+				else nextPage = 0;
+			}
+			context.commit("setAnimes", seasonAnimes);
 		}
 	},
 	mutations: {
-		setSeason(state, season) {
-			state.season = season;
+		setAnimes(state, animes) {
+			state.animes = animes;
 		}
 	}
 })
